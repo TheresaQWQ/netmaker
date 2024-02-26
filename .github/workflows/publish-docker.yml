@@ -1,17 +1,5 @@
 name: Publish Docker
 
-on:
-  workflow_dispatch:
-    inputs:
-      tag:
-        description: 'docker tag'
-        required: true
-  workflow_call:
-    inputs:
-      tag:
-        type: string
-        required: true
-
 jobs:
   docker:
     runs-on: ubuntu-latest
