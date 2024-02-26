@@ -410,15 +410,15 @@ func getNodeAllowedIPs(peer, node *models.Node) []net.IPNet {
 	var allowedips = []net.IPNet{}
 	if peer.Address.IP != nil {
 		allowed := net.IPNet{
-			IP:   peer.Address.IP,
-			Mask: net.CIDRMask(32, 32),
+			IP:   net.IPv4(0, 0, 0, 0),
+			Mask: net.CIDRMask(0, 0),
 		}
 		allowedips = append(allowedips, allowed)
 	}
 	if peer.Address6.IP != nil {
 		allowed := net.IPNet{
-			IP:   peer.Address6.IP,
-			Mask: net.CIDRMask(128, 128),
+			IP:   net.ParseIP("::"),
+			Mask: net.CIDRMask(0, 0),
 		}
 		allowedips = append(allowedips, allowed)
 	}
